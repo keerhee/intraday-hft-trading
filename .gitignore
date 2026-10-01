@@ -1,0 +1,4 @@
+# 원본 PPTX는 저장소에 올리지 않는다 — 배포는 PDF로 한다.
+*.pptx
+*.ppt
+.DS_Store

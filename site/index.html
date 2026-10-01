@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>인트라데이 전략 32</title>
+<meta name="description" content="장중·고빈도 거래 전략 후보 32개를 여덟 유형으로 나눠 가설·측정·판정으로 검증하는 강의 덱 모음">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F9;--panel:#FFFFFF;--ink:#14213D;--sub:#5B6475;--line:#E2E6EC;--accent:#1F4E8C;--accent-ink:#FFFFFF;--chip:#EEF2F8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E131B;--panel:#161D28;--ink:#E8EDF5;--sub:#9AA6B8;--line:#26303F;--accent:#6EA1E6;--accent-ink:#0E131B;--chip:#1E2836}}
+:root[data-theme="dark"]{--bg:#0E131B;--panel:#161D28;--ink:#E8EDF5;--sub:#9AA6B8;--line:#26303F;--accent:#6EA1E6;--accent-ink:#0E131B;--chip:#1E2836}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header{padding:44px 0 20px}
+.kick{font-size:13px;letter-spacing:.06em;color:var(--sub);font-weight:500}
+h1{font-size:clamp(26px,4.4vw,38px);margin:6px 0 8px;line-height:1.25}
+.intro{color:var(--sub);max-width:760px;margin:0}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin:22px 0 4px}
+.stats b{display:block;font-size:26px;color:var(--accent)}.stats span{font-size:13px;color:var(--sub)}
+.note{margin:18px 0 0;padding:12px 14px;border-left:3px solid var(--accent);background:var(--chip);border-radius:6px;font-size:14px}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 16px}
+nav a{flex:none;text-decoration:none;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:500}
+nav a:hover{border-color:var(--accent);color:var(--accent)}
+main .wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:22px 16px 48px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;scroll-margin-top:64px;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:10px}
+.top h2{font-size:19px;margin:0}
+.badge{flex:none;min-width:34px;height:34px;border-radius:8px;display:grid;place-items:center;font-weight:700;background:var(--accent);color:var(--accent-ink);font-size:15px;padding:0 6px}
+.badge.bX{font-size:13px}
+.lead{color:var(--sub);font-size:14px;margin:8px 0 10px}
+dl{margin:0 0 12px;display:grid;gap:4px}dl div{display:flex;gap:8px;font-size:14px}dt{flex:none;width:82px;color:var(--sub)}dd{margin:0}
+.files{list-style:none;margin:auto 0 0;padding:0;border-top:1px solid var(--line)}
+.files li{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:10px 0 0}
+.k{font-weight:500;font-size:14px}.m{color:var(--sub);font-size:13px}.a{margin-left:auto;display:flex;gap:6px}
+.btn{text-decoration:none;font-size:13px;padding:4px 10px;border-radius:6px;background:var(--accent);color:var(--accent-ink);font-weight:500}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+footer{border-top:1px solid var(--line);color:var(--sub);font-size:13px;padding:18px 0 36px}
+footer a{color:var(--accent)}
+</style></head><body>
+<header><div class="wrap">
+<div class="kick">INTRADAY · HFT TRADING</div>
+<h1>인트라데이 전략 32</h1>
+<p class="intro">장중·고빈도 거래 전략 후보 32개를 여덟 유형으로 나누고, 유형마다 가설 → 측정 → 판정의 같은 잣대로 검증 방법을 정리한 강의 덱 모음. 유형별 본편과 손계산 워크북, 그리고 개발 순서를 정하는 비교 덱.</p>
+<div class="stats"><div><b>8</b><span>전략 유형</span></div><div><b>32</b><span>연구 후보</span></div><div><b>18</b><span>PDF</span></div><div><b>488</b><span>슬라이드</span></div></div>
+<p class="note">모든 후보는 연구 가설이며, 수치 예제는 교육용 가정이다. 검증을 마친 전략이나 매매 권고가 아니다.</p>
+</div></header>
+<nav aria-label="유형"><div class="wrap"><a href="#비교">비교</a><a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a><a href="#E">E</a><a href="#F">F</a><a href="#G">G</a><a href="#H">H</a></div></nav>
+<main><div class="wrap">
+<article class="card" id="비교">
+  <div class="top"><span class="badge bX">비교</span><h2>32개 후보 비교와 개발 우선순위</h2></div>
+  <p class="lead">여덟 유형을 같은 잣대로 놓고, 무엇을 먼저 만들지 정한다</p>
+  <dl><div><dt>목표 보유</dt><dd>—</dd></div><div><dt>다루는 것</dt><dd>32개 후보 지도 · 시장별 현실 · 먼저 만들 10개 · 통과 기준</dd></div></dl>
+  <ul class="files"><li><span class="k">본편</span><span class="m">33장 · 899 KB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/00_Comparison_Priority/Intraday32_Comparison_Priority_Main.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/00_Comparison_Priority/Intraday32_Comparison_Priority_Main.pdf" download>내려받기</a></span></li><li><span class="k">손계산 워크북</span><span class="m">8장 · 410 KB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/00_Comparison_Priority/Intraday32_Comparison_Priority_Workbook.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/00_Comparison_Priority/Intraday32_Comparison_Priority_Workbook.pdf" download>내려받기</a></span></li></ul>
+</article><article class="card" id="A">
+  <div class="top"><span class="badge bA">A</span><h2>주문 흐름과 호가</h2></div>
+  <p class="lead">체결이 먼저 말하고, 호가는 그것을 확인한다</p>
+  <dl><div><dt>목표 보유</dt><dd>1–60초</dd></div><div><dt>네 연구 후보</dt><dd>체결 우세 · 다층 잔량 · 재공급 · 체결 가속</dd></div></dl>
+  <ul class="files"><li><span class="k">본편</span><span class="m">44장 · 1.9 MB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/A_OrderFlow/A_OrderFlow_Main.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/A_OrderFlow/A_OrderFlow_Main.pdf" download>내려받기</a></span></li><li><span class="k">손계산 워크북</span><span class="m">14장 · 829 KB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/A_OrderFlow/A_OrderFlow_Workbook.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/A_OrderFlow/A_OrderFlow_Workbook.pdf" download>내려받기</a></span></li></ul>
+</article><article class="card" id="B">
+  <div class="top"><span class="badge bB">B</span><h2>유동성 충격과 회복</h2></div>
+  <p class="lead">급락을 사는 것이 아니라, 확인된 뒤 남은 되돌림을 산다</p>
+  <dl><div><dt>목표 보유</dt><dd>2초–10분</dd></div><div><dt>네 연구 후보</dt><dd>매도 충격 · 스프레드 · 강제청산 · 매도 흡수</dd></div></dl>
+  <ul class="files"><li><span class="k">본편</span><span class="m">42장 · 1.6 MB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/B_LiquidityShock/B_LiquidityShock_Main.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/B_LiquidityShock/B_LiquidityShock_Main.pdf" download>내려받기</a></span></li><li><span class="k">손계산 워크북</span><span class="m">13장 · 996 KB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/B_LiquidityShock/B_LiquidityShock_Workbook.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/B_LiquidityShock/B_LiquidityShock_Workbook.pdf" download>내려받기</a></span></li></ul>
+</article><article class="card" id="C">
+  <div class="top"><span class="badge bC">C</span><h2>추세와 변동성 돌파</h2></div>
+  <p class="lead">추세 지속 가설을 비용 후 성과로 검증한다</p>
+  <dl><div><dt>목표 보유</dt><dd>1–30분</dd></div><div><dt>네 연구 후보</dt><dd>초기 범위 · 압축 · VWAP 눌림목 · 재시험</dd></div></dl>
+  <ul class="files"><li><span class="k">본편</span><span class="m">40장 · 1.6 MB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/C_TrendBreakout/C_TrendBreakout_Main.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/C_TrendBreakout/C_TrendBreakout_Main.pdf" download>내려받기</a></span></li><li><span class="k">손계산 워크북</span><span class="m">14장 · 967 KB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/C_TrendBreakout/C_TrendBreakout_Workbook.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/C_TrendBreakout/C_TrendBreakout_Workbook.pdf" download>내려받기</a></span></li></ul>
+</article><article class="card" id="D">
+  <div class="top"><span class="badge bD">D</span><h2>평균회귀와 상대가치</h2></div>
+  <p class="lead">무엇에 대해, 얼마나 빨리, 비용을 넘게 돌아오는가</p>
+  <dl><div><dt>목표 보유</dt><dd>1–30분</dd></div><div><dt>네 연구 후보</dt><dd>요인 잔차 · VWAP 편차 · 페어 · 바스켓</dd></div></dl>
+  <ul class="files"><li><span class="k">본편</span><span class="m">41장 · 1.7 MB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/D_MeanReversion/D_MeanReversion_Main.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/D_MeanReversion/D_MeanReversion_Main.pdf" download>내려받기</a></span></li><li><span class="k">손계산 워크북</span><span class="m">13장 · 984 KB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/D_MeanReversion/D_MeanReversion_Workbook.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/D_MeanReversion/D_MeanReversion_Workbook.pdf" download>내려받기</a></span></li></ul>
+</article><article class="card" id="E">
+  <div class="top"><span class="badge bE">E</span><h2>선도·후행과 정보 전파</h2></div>
+  <p class="lead">먼저 움직인 쪽을 보고, 내 주문 뒤에 남은 움직임만 거래한다</p>
+  <dl><div><dt>목표 보유</dt><dd>1초–10분</dd></div><div><dt>네 연구 후보</dt><dd>BTC · 거래소 간 · 선물→ETF · 업종</dd></div></dl>
+  <ul class="files"><li><span class="k">본편</span><span class="m">36장 · 1.1 MB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/E_LeadLag/E_LeadLag_Main.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/E_LeadLag/E_LeadLag_Main.pdf" download>내려받기</a></span></li><li><span class="k">손계산 워크북</span><span class="m">11장 · 654 KB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/E_LeadLag/E_LeadLag_Workbook.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/E_LeadLag/E_LeadLag_Workbook.pdf" download>내려받기</a></span></li></ul>
+</article><article class="card" id="F">
+  <div class="top"><span class="badge bF">F</span><h2>가격차와 헤지 거래</h2></div>
+  <p class="lead">보이는 가격차가 아니라 두 다리를 치른 뒤 남는 돈을 거래한다</p>
+  <dl><div><dt>목표 보유</dt><dd>1초–30분</dd></div><div><dt>네 연구 후보</dt><dd>무기한 · 거래소 간 · ETF 바스켓 · 만기선물</dd></div></dl>
+  <ul class="files"><li><span class="k">본편</span><span class="m">47장 · 2.4 MB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/F_PriceDiff_Hedge/F_PriceDiff_Hedge_Main.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/F_PriceDiff_Hedge/F_PriceDiff_Hedge_Main.pdf" download>내려받기</a></span></li><li><span class="k">손계산 워크북</span><span class="m">18장 · 1.5 MB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/F_PriceDiff_Hedge/F_PriceDiff_Hedge_Workbook.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/F_PriceDiff_Hedge/F_PriceDiff_Hedge_Workbook.pdf" download>내려받기</a></span></li></ul>
+</article><article class="card" id="G">
+  <div class="top"><span class="badge bG">G</span><h2>시간대와 시장 사건</h2></div>
+  <p class="lead">사건이 시계를 시작한다 — 내가 알게 된 순간부터</p>
+  <dl><div><dt>목표 보유</dt><dd>5초–30분</dd></div><div><dt>네 연구 후보</dt><dd>시초가 갭 · VI 재개 · 공시·뉴스 · 펀딩 정산</dd></div></dl>
+  <ul class="files"><li><span class="k">본편</span><span class="m">41장 · 1.9 MB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/G_TimeEvents/G_TimeEvents_Main.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/G_TimeEvents/G_TimeEvents_Main.pdf" download>내려받기</a></span></li><li><span class="k">손계산 워크북</span><span class="m">16장 · 1.0 MB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/G_TimeEvents/G_TimeEvents_Workbook.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/G_TimeEvents/G_TimeEvents_Workbook.pdf" download>내려받기</a></span></li></ul>
+</article><article class="card" id="H">
+  <div class="top"><span class="badge bH">H</span><h2>시장조성과 재고 관리</h2></div>
+  <p class="lead">스프레드를 제시하고, 쌓인 재고와 불리한 체결을 관리한다</p>
+  <dl><div><dt>목표 보유</dt><dd>재고 1초–5분</dd></div><div><dt>네 연구 후보</dt><dd>재고 조절 · 예측 비대칭 · 역선택 대응 · 헤지</dd></div></dl>
+  <ul class="files"><li><span class="k">본편</span><span class="m">41장 · 1.9 MB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/H_MarketMaking/H_MarketMaking_Main.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/H_MarketMaking/H_MarketMaking_Main.pdf" download>내려받기</a></span></li><li><span class="k">손계산 워크북</span><span class="m">16장 · 911 KB</span><span class="a"><a class="btn" href="https://github.com/keerhee/intraday-hft-trading/blob/main/H_MarketMaking/H_MarketMaking_Workbook.pdf" target="_blank" rel="noopener">열람</a><a class="btn ghost" href="https://github.com/keerhee/intraday-hft-trading/raw/main/H_MarketMaking/H_MarketMaking_Workbook.pdf" download>내려받기</a></span></li></ul>
+</article>
+</div></main>
+<footer><div class="wrap">저장소 <a href="https://github.com/keerhee/intraday-hft-trading">keerhee/intraday-hft-trading</a> · 자료 CC BY-NC-SA 4.0</div></footer>
+</body></html>
