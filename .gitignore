@@ -2,6 +2,3 @@
 *.pptx
 *.ppt
 .DS_Store
-
-# 카드뉴스 PNG 낱장은 로컬 보관 — 배포는 카드 PDF로 한다.
-*/Cards/PNG/

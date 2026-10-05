@@ -78,7 +78,7 @@
 ## 파일 이름
 
 `A_OrderFlow/A_OrderFlow_Main.pdf` · `A_OrderFlow/A_OrderFlow_Workbook.pdf` — 유형 문자 + 슬러그 + 본편/워크북.
-카드뉴스는 `A_OrderFlow/Cards/A1_OrderFlow_Momentum.pdf`처럼 후보 번호 + 슬러그. 낱장 PNG는 로컬에만 둔다(`Cards/PNG/`, 저장소 제외).
+카드뉴스는 `A_OrderFlow/Cards/A1_OrderFlow_Momentum.pdf`처럼 후보 번호 + 슬러그. 낱장 PNG(2160×2700)는 `Cards/PNG/<후보>/<후보>_01.png`–`_08.png`에 있다.
 원본 PPTX는 저장소에 올리지 않는다.
 
 ## 라이선스
